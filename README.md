@@ -16,6 +16,6 @@ github.com/sqlc-dev/sqlc/cmd/sqlc@v1.26.0
 Use these tools with `gotools` like this:
 
 ```go
-//go:generate go run github.com/shagohead/gotools@v0.1.0 ogen -target=client -package=client -clean openapi.yaml
-//go:generate go run github.com/shagohead/gotools@v0.1.0 sqlc generate
+//go:generate go run github.com/shagohead/gotools@v0.1.1 ogen -target=client -package=client -clean openapi.yaml
+//go:generate go run github.com/shagohead/gotools@v0.1.1 sqlc generate
 ```

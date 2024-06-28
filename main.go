@@ -43,7 +43,7 @@ func run() error {
 			break
 		}
 	}
-	return nil
+	return errors.New("go.tools not found")
 }
 
 func findSpec(fpath string) (spec, error) {
@@ -114,8 +114,6 @@ func (spec spec) exec(args []string) error {
 			if err != nil && !errors.Is(err, os.ErrNotExist) {
 				return err
 			}
-			fmt.Println("pkgver", pkgver)
-			fmt.Println("cuver", curver)
 			fmt.Println("Installing", spec)
 			if err = command("go", "install", spec); err != nil {
 				return err
