@@ -3,6 +3,8 @@ gotools
 
 Tiny (without dependencies) `go run package@version` alternative that pre-installs binaries into (project) local directory. This eliminates waiting of tools building on every `go generate` call (gotools itself builds relatively fast).
 
+Why not use «tools.go» approach which tracks apps versions in go.mod? Because in that way tools dependencies becomes project dependencies and affects project's dependency graph and vice versa: your project dependencies affects tools dependencies, and even more: tools affects each other dependencies. This is wrong, because and your project and each tool should have their own dependencies isolated from others.
+
 Usage
 -----
 
