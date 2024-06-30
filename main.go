@@ -91,6 +91,14 @@ func (spec spec) exec(args []string) error {
 			if !errors.Is(err, os.ErrNotExist) {
 				return err
 			}
+			if _, err = os.Stat(bindir); err != nil {
+				if !errors.Is(err, os.ErrNotExist) {
+					return err
+				}
+				if err = os.Mkdir(bindir, os.ModePerm); err != nil {
+					return err
+				}
+			}
 			vfile, err = os.OpenFile(vpath, os.O_WRONLY|os.O_CREATE, 0666)
 			if err != nil {
 				return err
