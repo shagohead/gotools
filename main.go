@@ -140,7 +140,7 @@ func (spec spec) exec(args []string) error {
 		}
 		return command(exe, args[1:]...)
 	}
-	return nil
+	return fmt.Errorf("not found spec for %s", args[0])
 }
 
 func command(name string, args ...string) error {
